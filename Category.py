@@ -6,10 +6,9 @@ class Category:
         self.db = Db(host='localhost', user='root', password='root', database='store')
 
     
-
     def create(self,name):
         query = f'INSERT INTO {self.table} (name) VALUES (%s)'
-        params = (name)
+        params = (str(name),)
         self.db.executeQuery(query, params)
 
     def read(self):

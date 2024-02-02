@@ -77,13 +77,14 @@ class Main:
             print(f"id : {product[0]}")
             print(f"Nom : {product[1]}")
             print(f"Description : {product[2]}")
-            print(f"Quantité : {product[3]}")
-            print(f"Id_catégorie : {product[4]}")
+            print(f"Prix :{product[3]}")
+            print(f"Quantité : {product[4]}")
+            print(f"Id_catégorie : {product[5]}")
             print("------------------")
         self.menu()
 
     def updateProduct(self):
-        id_product = input("ID du produit : ")
+        id = input("ID du produit : ")
         name = input("Nom : ")
         description = input("Description : ")
         price = input("Prix : ")
@@ -92,12 +93,12 @@ class Main:
 
 
         try:
-            id_product = int(id_product)
+            id = int(id)
         except ValueError:
             print("L'ID de produit est invalide. Veuillez entrer un nombre.")
             self.menu()
 
-        self.gerant.updateProduct(id_product, name, description, price, quantity, id_category)
+        self.gerant.updateProduct(id, name, description, price, quantity, id_category)
         self.menu()
 
     def deleteProduct(self):
@@ -125,15 +126,7 @@ class Main:
         self.menu()
 
     def createCategory(self):
-        name = input("Catégorie numéro : ")
-        
-
-        try:
-            name = int(name)
-
-        except ValueError:
-            print("ID de categorie invalide. Veuillez entrer un nombre.")
-            self.menu()
+        name = input("Nom catégorie : ")
 
         self.gerant.createCategory(name)
         self.menu()
@@ -149,17 +142,18 @@ class Main:
     def updateCategory(self):
         id_category = input("ID de la categorie : ")
         name = input("Nom de la categorie : ")
-        type_category = input("Type de la categorie : ")
-        max_products = input("Nombre maximum de produit : ")
+        # type_category = input("Type de la categorie : ")
+        # max_products = input("Nombre maximum de produit : ")
 
         try:
             id_category = int(id_category)
-            max_products = int(max_products)
+            # max_products = int(max_products)
         except ValueError:
             print("ID de categorie ou nombre maximum de produit invalide. Veuillez entrer un nombre.")
             self.menu()
 
-        self.gerant.updateCategory(id_category, name, type_category, max_products)
+        # self.gerant.updateCategory(id_category, name, type_category, max_products)
+        self.gerant.updateCategory(id_category, name)
         self.menu()
 
     def deleteCategory(self):

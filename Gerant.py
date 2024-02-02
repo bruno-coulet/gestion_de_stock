@@ -25,7 +25,7 @@ class Gerant:
         return self.product.find(id)
     
     def createCategory(self, name):
-        self.category.create( name)
+        self.category.create(name)
 
     def readCategory(self):
         return self.category.read()

@@ -15,9 +15,9 @@ class Product:
         query = f'SELECT * FROM {self.table}'
         return self.db.fetch(query)
 
-    def update(self, id, name, description, price):
-        query = f'UPDATE {self.table} SET name=%s, description=%s, price=%s WHERE id=%s'
-        params = (name, description, price, id)
+    def update(self, id, name, description, price, quantity, id_category):
+        query = f'UPDATE {self.table} SET name=%s, description=%s, price=%s, quantity=%s, id_category=%s WHERE id=%s'
+        params = (name, description, price, quantity, id_category, id)
         self.db.executeQuery(query, params)
 
     def delete(self, id):
