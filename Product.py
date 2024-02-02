@@ -29,3 +29,5 @@ class Product:
         query = f'SELECT * FROM {self.table} WHERE id=%s'
         params = (id,)
         return self.db.fetch(query, params)
+    
+    
