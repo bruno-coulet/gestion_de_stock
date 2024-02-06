@@ -5,7 +5,6 @@ class Product:
         self.table = 'product'
         self.db = Db(host='localhost', user='root', password='root', database='store')
 
-
     def create(self, name, description, price, quantity, id_category):
         query = f'INSERT INTO {self.table} (name, description, price, quantity, id_category ) VALUES (%s, %s, %s, %s, %s)'
         params = (name, description, price, quantity, id_category)

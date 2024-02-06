@@ -2,18 +2,19 @@ from Product import Product
 from Category import Category
 
 
-class Main:
+class Modifications:
     def __init__(self):
         self.product = Product()
         self.category = Category()
 
-    def createProduct(self):
-        name = input("Nom : ")
-        description = (input("Description : "))
-        price = input("Prix : ")
-        quantity = input("Quantité : ")
-        id_category = int(input("ID de la catégorie : "))
-
+    # def createProduct(self):
+    def createProduct(self, name, description, price, quantity, id_category):
+        # name = input("Nom : ")
+        # description = (input("Description : "))
+        # price = input("Prix : ")
+        # quantity = input("Quantité : ")
+        # id_category = int(input("ID de la catégorie : "))
+        
         try:
             id_category = int(id_category)
         except ValueError:
@@ -21,18 +22,7 @@ class Main:
 
         self.product.create(name, description, price ,quantity ,id_category)
 
-    def readProduct(self):
-        # for product in self.gerant.readProduct():
-        for product in self.product.read():
-            print("Produit : ")
-            print(f"id : {product[0]}")
-            print(f"Nom : {product[1]}")
-            print(f"Description : {product[2]}")
-            print(f"Prix :{product[3]}")
-            print(f"Quantité : {product[4]}")
-            print(f"Id_catégorie : {product[5]}")
-            print("------------------")
-        # self.menu()
+
 
     def updateProduct(self):
         id = input("ID du produit : ")
@@ -142,7 +132,20 @@ class Main:
         self.category.addProduct(id_product, id_category)
         # self.menu()
 
-# Main()
+    def readProduct(self):
+        # for product in self.gerant.readProduct():
+        for product in self.product.read():
+            print("Produit : ")
+            print(f"id : {product[0]}")
+            print(f"Nom : {product[1]}")
+            print(f"Description : {product[2]}")
+            print(f"Prix :{product[3]}")
+            print(f"Quantité : {product[4]}")
+            print(f"Id_catégorie : {product[5]}")
+            print("------------------")
+        # self.menu()
+
+# Modifications()
         
 
 
