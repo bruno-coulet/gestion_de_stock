@@ -7,14 +7,8 @@ class Modifications:
         self.product = Product()
         self.category = Category()
 
-    # def createProduct(self):
+
     def createProduct(self, name, description, price, quantity, id_category):
-        # name = input("Nom : ")
-        # description = (input("Description : "))
-        # price = input("Prix : ")
-        # quantity = input("Quantité : ")
-        # id_category = int(input("ID de la catégorie : "))
-        
         try:
             id_category = int(id_category)
         except ValueError:
@@ -23,116 +17,37 @@ class Modifications:
         self.product.create(name, description, price ,quantity ,id_category)
 
 
-
-    def updateProduct(self):
-        id = input("ID du produit : ")
-        name = input("Nom : ")
-        description = input("Description : ")
-        price = input("Prix : ")
-        quantity = input("Quantité : ")
-        id_category = int(input("ID de la catégorie : "))
-
+    def updateProduct(self, id, name, description, price, quantity, id_category):
         try:
             id = int(id)
         except ValueError:
             print("L'ID de produit est invalide. Veuillez entrer un nombre.")
-            # self.menu()
+            return
 
         self.product.update(id, name, description, price, quantity, id_category)
-        # self.gerant.updateProduct(id, name, description, price, quantity, id_category)
-        # self.menu()
 
-    def deleteProduct(self):
-        id_product = input("ID du produit à effacer : ")
 
+    # def deleteProduct(self):
+    #     id_product = input("ID du produit à effacer : ")
+
+    #     try:
+    #         id_product = int(id_product)
+    #     except ValueError:
+    #         print("L'ID de produit est invalide. Veuillez entrer un nombre.")
+
+    #     self.product.delete(id_product)
+    def deleteProduct(self, id_product):
+        """Supprime un produit avec l'ID spécifié"""
         try:
             id_product = int(id_product)
         except ValueError:
             print("L'ID de produit est invalide. Veuillez entrer un nombre.")
-            # self.menu()
+            return
 
         self.product.delete(id_product)
-        # self.menu()
-
-    def findProduct(self):
-        id_product = input("ID du produit : ")
-
-        try:
-            id_product = int(id_product)
-        except ValueError:
-            print("L'ID de produit est invalide. Veuillez entrer un nombre.")
-            # self.menu()
-
-        print(self.product.find(id_product))
-        # self.menu()
-
-    def createCategory(self):
-        name = input("Nom catégorie : ")
-
-        self.category.create(name)
-        # self.menu()
-
-    def readCategory(self):
-        for category in self.category.readCategory():
-            print("Categorie : ")
-            print(f"id : {category[0]}")
-            print(f"nom de catégorie : {category[1]}")
-            print("------------------")
-        self.menu()
-
-    def updateCategory(self):
-        id_category = input("ID de la categorie : ")
-        name = input("Nom de la categorie : ")
 
 
-        try:
-            id_category = int(id_category)
-        except ValueError:
-            print("ID de categorie ou nombre maximum de produit invalide. Veuillez entrer un nombre.")
-            # self.menu()
 
-        self.category.update(id_category, name)
-        # self.menu()
-
-    def deleteCategory(self):
-        id_category = input("ID de la categorie : ")
-
-        try:
-            id_category = int(id_category)
-        except ValueError:
-            print("ID de categorie invalide. Veuillez entrer un nombre.")
-            # self.menu()
-
-        self.category.delete(id_category)
-        # self.menu()
-
-    def findCategory(self):
-        id_category = input("ID de la categorie : ")
-
-        try:
-            id_category = int(id_category)
-        except ValueError:
-            print("ID de categorie invalide. Veuillez entrer un nombre.")
-            # self.menu()
-
-        print(self.category.find(id_category))
-        # self.menu()
-
-    def addProductToCategory(self):
-        id_product = input("ID du produit : ")
-        id_category = input("ID de la categorie : ")
-
-        try:
-            id_product = int(id_product)
-            id_category = int(id_category)
-        except ValueError:
-            print("ID de produit ou ID de categorie invalide. Veuillez entrer un nombre.")
-            # self.menu()
-
-        self.category.addProduct(id_product, id_category)
-        # self.menu()
-
-    def readProduct(self):
         # for product in self.gerant.readProduct():
         for product in self.product.read():
             print("Produit : ")
@@ -144,13 +59,6 @@ class Modifications:
             print(f"Id_catégorie : {product[5]}")
             print("------------------")
         # self.menu()
-
-# Modifications()
-        
-
-
-
-
 
 
         # CI DESSOUS C'ETAIT DANS LE INIT (ligne 8)
